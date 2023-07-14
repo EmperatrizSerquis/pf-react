@@ -1,0 +1,93 @@
+.grid__list {
+    display: grid;
+    gap: 30px;
+
+    .product__card {
+        background-color: rgba(249,237,240,0.8);
+        padding: 30px 20px;
+        text-align: center;
+        outline: 2px solid transparent;
+        transition: 0.25s ease;
+
+        .card__banner {
+            position: relative;
+            max-width: max-content;
+            margin-inline: auto;
+            margin-block-end: 20px;
+
+            img {
+                width: 100%;
+                height: auto;
+                transition: 0.25s ease;
+                overflow-clip-margin: content-box;
+                overflow: clip;
+            }
+        }
+
+        .card__title {
+            color: black;
+            font-size: 18px;
+            font-weight: 500;
+            margin-block-end: 10px;
+        }
+
+        .price {
+            color: black;
+            font-size: 22px;
+            font-weight: 700;
+            margin-block-end: 10px;
+        }
+
+        .btn__wrapper {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            padding-top: 15px;
+            justify-content: space-around;
+
+            .btn__card {
+                width: 100%;
+                background-color: var(--primary);
+                color: white;
+                display: flex;
+                align-items: center;
+                width: max-content;
+                font-size: 16px;
+                font-weight: bold;
+                padding: 5px 10px;
+                border-radius: 50px;
+                transition: 0.25s ease;
+            }
+            .btn__cart {
+                width: 100%;
+                background-color: var(--white);
+                color: var(--primary);
+                display: flex;
+                align-items: center;
+                width: max-content;
+                font-size: 16px;
+                font-weight: bold;
+                padding: 5px 10px;
+                border-radius: 50px;
+                transition: 0.25s ease;
+            }
+        }
+
+       
+    }
+}
+
+@media (min-width: 480px) {
+    .grid__list {
+        grid-template-columns: 1fr 1fr;
+        column-gap: 20px;
+    }
+}
+
+@media (min-width: 992px) {
+    .grid__list {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+

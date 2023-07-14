@@ -1,0 +1,107 @@
+
+[
+    {
+        "id": 1,
+        "name": "Lámpara led MACROLED gota vintage 4w e14 480LM 2700º k",
+        "code": "BFG45-E14-4WW",
+        "description": "Lámpara led, con un Consumo mínimo, ideal para decoración, o iluminación puntual, ideal para guirnaldas",
+        "brand": "MACROLED",
+        "price": 997,
+        "img": "https://www.electromisiones.com.ar/25668-large_default/lampara_led_macroled_gota_vintage_4w_e14_480lm_2700_k.webp",
+        "category": "lamps",
+        "stock": 10,
+        "power": "4W",
+        "tone": "Luz Cálida 2700"
+    },
+    {
+        "id": 2,
+        "name": "Lámpara Led CANDIL AR111 GU10 12w 3000°k 825lm 30° 220v",
+        "code": "LGU-1212L-30",
+        "description": "Lámpara led, con un Consumo mínimo, ideal para decoración, o iluminación puntual, ideal para guirnaldas",
+        "brand": "Candil",
+        "price": 2048,
+        "img": "https://www.electromisiones.com.ar/23297-large_default/lampara_led_candil_ar111_gu10_12w_3000k_825lm_30_220v.webp",
+        "category": "lamps",
+        "stock": 10,
+        "power": "12W",
+        "tone": "Luz Cálida 3000k"
+    },
+    {
+        "id": 3,
+        "name": "Aro Led TBCin con Tripode de piso 12w 2A 5Vcc dimerizable",
+        "code": "TRL250R-T21",
+        "description": "Aro Led TBCin con Tripode de piso 12w 2A 5Vcc dimerizable. Este Aro Led te brindará una iluminación profesional para eliminar sombras en la grabación de videos, transmisiones en vivo, fotos o autofotos, maquillaje personal, o en cualquier variedad de escenarios y actividades. Sus poderosos Chips de LED son la elección perfecta de luz adicional en interiores y exteriores.Viene con 3 modos de iluminación (luz cálida, Neutra y Dia), y cada modo de iluminación es dimerizable ajustables para elegir la intensidad.Fácil de armar y manejar, cuenta con un trípode y funciona mediante carga USB",
+        "brand": "TBCin",
+        "price": 18000,
+        "img": "https://www.electromisiones.com.ar/15191-large_default/aro_led_tbcin_con_tripode_de_piso_12w_2a_5vcc_dimerizable.webp",
+        "category": "aros",
+        "stock": 10,
+        "power": "4W",
+        "tone": ["Luz Cálida 3000", "Luz Natural 4500", "Luz Día 4500"]
+    },
+    {
+        "id": 4,
+        "name": "Luminaria ledvance damp-proof hermetica ip65 para 1 tubo de 1262mm",
+        "code": "7017498",
+        "description": "Son los reemplazos óptimos para luminarias con tecnología tradicional, con un ahorro energético de hasta el 50%. Distribuyen una luz uniforme gracias a su amplio ángulo de apertura y se caracterizan por su fácil instalación y una conexión sin herramientas. El módulo LED integrado en la cubierta de la luminaria evita el riesgo EMC",
+        "brand": "Ledvance",
+        "price": 7700,
+        "img": "https://www.electromisiones.com.ar/18727-large_default/luminaria_ledvance_damp_proof_hermetica_ip65_para_1_tubo_de_1262mm.webp",
+        "category": "apliques",
+        "stock": 10,
+        "power": "",
+        "tone": ""
+    },
+    {
+        "id": 5,
+        "name": "Cinta Led 60 flexible luz dia 4.8w x metro",
+        "code": "ES60-P2835-IP20-W",
+        "description": "Cinta led MACROLED x Metro flexible 120led 12Vcc Ip20 12vcc luz cálida. Cantidad de leds por metro: 120.Largo 5 m  ",
+        "brand": "MACROLED",
+        "price": 1600,
+        "img": "https://www.electromisiones.com.ar/20697-large_default/cinta_led_60_flexible_luz_dia_48w_x_metro.webp",
+        "category": "tiras",
+        "stock": 5,
+        "power": "16W",
+        "tone": "Luz Fría"
+    },
+    {
+        "id": 6,
+        "name": "Tira LED ILUMROS NEON 5 metros 11mm 120 LED x metro IP65 12v blanco cálido",
+        "code": "69164",
+        "description": "Lámpara led, con un Consumo mínimo, ideal para decoración, o iluminación puntual, ideal para guirnaldas",
+        "brand": "ILUMROS",
+        "price": 5600,
+        "img": "https://dummyimage.com/200x200/000/fff",
+        "category": "tiras",
+        "stock": 5,
+        "power": "12W",
+        "tone": "Luz Cálida"
+    },
+    {
+        "id": 7,
+        "name": "Set cinta led TBCin rgb audioritmica 14.4w/12vcc + fuente+ controaldor ip20",
+        "code": "SET-P5050-IP20-WIFIM",
+        "description": "Set cinta led autoritmica + fuente + controlador IP20 marca TBC.Cantidad de Leds: 60Leds/metro.Controlable con App Smart Life",
+        "brand": "TBCin",
+        "price": 30100,
+        "img": "https://www.electromisiones.com.ar/16380-large_default/set_cinta_led_tbcin_rgb_audioritmica_144w12vcc_fuente_controaldor_ip20.webp",
+        "category": "tiras",
+        "stock": 5,
+        "power": "14.4W",
+        "tone": "Luz RGB + Luz Cálida"
+    },
+    {
+        "id": 8,
+        "name": "Lámpara led MACROLED Highpower Bulbón 30w 3000lm E27 3000ºk Luz Calida",
+        "code": "BAP-30-E27",
+        "description": "Posee un 80% menos de consumo y dura hasta 30 veces más que una lámpara incandescente",
+        "brand": "MACROLED",
+        "price": 1800,
+        "img": "https://www.electromisiones.com.ar/25769-large_default/lampara_led_macroled_highpower_bulbon_30w_3000lm_e27_3000k_luz_calida.webp",
+        "category": "lamps",
+        "stock": 5,
+        "power": "30W",
+        "tone": "Luz Cálida 3000"
+    }
+]

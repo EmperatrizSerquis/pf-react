@@ -1,0 +1,17 @@
+.counter {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    align-items: center;
+    justify-content: space-around;
+    margin: 50px auto;
+    max-width: 300px;
+}
+
+.btn-action {
+    background-color: #de69d2;
+}
+
+.btn-shop {
+    background-color: #9c27b0;
+}

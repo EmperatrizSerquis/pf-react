@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Lato:wght@300;400;700&display=swap');
+
+:root {
+    --primary: #9c27b0;
+    --pink: #cea3eb;
+    --white: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+figure {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 40px;
+    margin-inline-end: 40px;
+}
+
+.center {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.w-100 {
+    width: 100%;
+}
+.mt-20 {
+    margin-top: 20px;
+}
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.section { padding-block: 80px; }
+
+.container {
+    padding-inline: 15px;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding-inline: 5px;
+        max-width: 100%;
+        margin-inline: auto;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        padding-inline: 40px;
+        max-width: 90%;
+    }
+}
+
+
+.btn {
+    width: 100%;
+    background-color: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    width: max-content;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 8px 20px;
+    border-radius: 50px;
+    transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
+
+.btn-center {
+    margin: 0 auto;
+}
+
+ul li {
+    text-decoration: none;
+    list-style: none;
+}
+
+.has-scrollbar {
+    display: flex;
+    overflow-x: auto;
+    padding-block-end: 30px;
+    margin-block-end: -30px;
+    scroll-snap-type: inline mandatory;
+}
+
+.has-scrollbar::-webkit-scrollbar { height: 10px; }
+
+.has-scrollbar::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 15px;
+}
+
+.has-scrollbar:hover::-webkit-scrollbar-thumb { background-color: #000; }
+
+.css-1fn4vgo {
+    gap: 20px;
+}
+
+.bg-primary {
+    background-color: var(--primary);
+}
+
+.tex-primary {
+    color: var(--primary);
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+.logo {
+    animation: logo-spin infinite 20s linear;
+}
+
+
+@import './components/NavBar/NavBar';
+@import './components/Loader/Loader';
+@import './components/CartWidget/CartWidget';
+@import './components/CartPage/CartPage';
+@import './components/Fancy/Fancy';
+@import './components/Banner/Banner';
+@import './components/ServicesListContainer/ServicesListContainer';
+@import './components/CategoryListContainer/CategoryListContainer';
+@import './components/ItemListContainer/ItemListContainer';
+@import './components/ItemList/ItemList';
+@import './components/ItemCard/ItemCard';
+@import './components/ItemDetail/ItemDetail';
+@import './components/ItemCount/ItemCount';
+@import './components/About/About';
+@import './components/MyButton/MyButton';
+@import './components/Modal/Modal';
+@import './components/Searcher/Searcher';
+@import './components/Footer/Footer';
+@import './components/Forms/Forms';
+

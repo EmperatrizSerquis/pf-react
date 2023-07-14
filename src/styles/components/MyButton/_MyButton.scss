@@ -1,0 +1,13 @@
+.my-button {
+    width: 100%;
+    background-color: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    width: max-content;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px 20px;
+    border-radius: 50px;
+    transition: 0.25s ease;
+}

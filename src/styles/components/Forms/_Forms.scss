@@ -1,0 +1,72 @@
+.b-background {
+  margin-top: 100px;
+  background-color: #cea3eb;
+  border-radius: 500px;
+  position: relative;
+
+    .promo-info {
+      position: absolute;
+      top: 120px;
+      left: 50px;
+      max-width: 200px;
+      color: #FFF;
+    }
+    .promo-checkout {
+      position: absolute;
+      top: 120px;
+      right: 30px;
+      max-width: 150px;
+    }
+    .my-form {
+      max-width: 400px;
+      background-color: white;
+      border: 3px solid var(--primary);
+      border-radius: 20px;
+      padding: 10px;
+      margin: 0 auto;
+
+      button:hover {
+        opacity: 0.8;
+      }
+
+      form {
+        border: 3px solid #f1f1f1;
+        padding: 10px;
+
+        input[type=text], input[type=email], input[type=password], select {
+          width: 100%;
+          padding: 12px 20px;
+          margin: 8px 0;
+          display: inline-block;
+          border: 1px solid #ccc;
+          box-sizing: border-box;
+        }
+    }
+    .log-links {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .link-register {
+      text-align: center;
+      margin: 20px;
+    }
+    
+  }
+}
+
+
+
+@media screen and (max-width: 998px) {
+  .b-background {
+    .promo-info {
+      display: none;
+    }
+    .promo-checkout {
+      display: none;
+    }
+  }
+  
+}
+

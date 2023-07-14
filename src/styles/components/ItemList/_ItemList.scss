@@ -1,0 +1,31 @@
+.products {
+    margin: 80px auto;
+    max-width: 100%;
+    text-align: center;
+
+    .products__title {
+        margin: 0px auto 20px;
+        color: #000;
+        font-size: 30px;
+      }
+
+    .products__container {  
+
+        width: 100%;
+
+
+    }
+
+    @media (min-width: 992px) {
+        .products__container {
+            flex-direction: row;
+
+        }
+        
+       }
+
+
+           
+  }
+  
+  

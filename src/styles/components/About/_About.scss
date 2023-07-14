@@ -1,0 +1,43 @@
+
+.service {
+  background-image: url("https://cdn.pixabay.com/photo/2017/11/01/18/17/christmas-2908901_1280.jpg");
+  background-color: #cea3eb;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-blend-mode: soft-light;
+
+  .service-list {
+    display: grid;
+    gap: 15px;
+
+      .service-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      .item-icon {
+        background-color: var(--white_25);
+        max-width: max-content;
+        padding: 20px;
+        border-radius: 50%;
+
+        img {
+          padding: 0;
+        }
+      }
+
+      .service-title {
+        font-weight: bold;
+      }
+    }
+  } 
+}
+
+
+
+
+
+
+
+.item__title { color: var(--white); }
+

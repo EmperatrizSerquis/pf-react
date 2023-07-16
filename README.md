@@ -1,5 +1,10 @@
 NUEVO REPO Proyecto Final REACJS
 
+Miralo en: https://glittery-pony-107284.netlify.app/products
+
+Si te logueas como admin@admin.com Password: Admin999
+Podés ver el por ahora MINI panel de Administración
+
 VER HISTÓRICO:
 
 Anterior: https://github.com/EmperatrizSerquis/PreEntrega2-ClaudiaSerquis

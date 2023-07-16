@@ -1,4 +1,5 @@
 import { useState, useEffect, createContext, useContext } from "react";
+import Swal from "sweetalert2";
 
 export const CartContext = createContext()
 
@@ -16,8 +17,20 @@ export const CartProvider = ({children}) => {
         if(isInCart(item.id)) {           
             updateQuantity(item.id, item.quantity)            
         } else {
-            setCart([...cart, item])        
-        }     
+            setCart([...cart, item])  
+                
+        }    
+        Swal.fire({
+            title: `You have added ${item.quantity} ${item.name} to your cart`,
+            icon: "success",
+            showClass: {
+                popup: 'animate__animated animate__fadeInDown'
+              },
+            hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+            }
+          })
+
     }
 
     const updateQuantity = (id, quantity) => {
@@ -45,8 +58,7 @@ export const CartProvider = ({children}) => {
     }
 
     const emptyCart = () => {
-        setCart([])
-        localStorage.setItem("cart", '');
+        setCart([]);
     }
 
     const showCartContent = () => {

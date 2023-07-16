@@ -13,7 +13,6 @@ export default function CartWidget() {
             <button> 
                 <Link to="/cart">
                     <ShoppingCartCheckoutIcon color="action" /> 
-             
                     <Badge badgeContent={totalItems()} color="secondary"></Badge>   
                 </Link> 
             </button>  

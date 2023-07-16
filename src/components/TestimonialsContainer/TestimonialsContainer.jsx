@@ -1,7 +1,6 @@
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
-import blackLogo from '/light-black.svg';
 
 
 const TestimonialsContainer = ( { producto } ) => {

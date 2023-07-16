@@ -1,5 +1,3 @@
-import { useEffect } from 'react'
-
 
 const ItemCount = ({ stock, quantity, setQuantity,  handleAdd }) => {
 
@@ -17,6 +15,7 @@ const ItemCount = ({ stock, quantity, setQuantity,  handleAdd }) => {
             <button onClick={handleLess} className={quantity === 1 ? "btn btn-action" : "btn btn-shop"} disabled={quantity === 1}>-</button>
             <span className="num">{quantity}</span>
             <button onClick={handlePlus} className="btn btn-action" disabled={quantity === stock}>+</button>
+
             <button onClick={handleAdd}  className={quantity === stock ? "btn btn-action" : "btn btn-shop"} >Add to Cart</button>
         </div>
     )

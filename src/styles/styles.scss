@@ -73,7 +73,7 @@ img {
 
 @media (min-width: 992px) {
     .container {
-        padding-inline: 40px;
+        padding: 40px;
         max-width: 90%;
     }
 }
@@ -164,4 +164,5 @@ ul li {
 @import './components/Searcher/Searcher';
 @import './components/Footer/Footer';
 @import './components/Forms/Forms';
+@import './components/WhatsApp/WhatsApp';
 

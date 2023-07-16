@@ -16,7 +16,6 @@ const CartPage = () => {
                 <Fancy />
 
                 {
-
                     cart.length === 0 
                     ? <CartEmpty/>
                     : <CartList/>
@@ -25,12 +24,9 @@ const CartPage = () => {
 
                 <Button/>
                 <InfoContainer>
-                Keep in Touch
-                <p>mail@mail.com</p>
+                    Keep in Touch
+                    <p>mail@mail.com</p>
                 </InfoContainer>
-            
-            
-            
             
             </div>
         )

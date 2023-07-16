@@ -1,18 +1,13 @@
 import TitleContainer from '../TitleContainer/TitleContainer'
 
-
 const CartEmpty = () => {
 
     return (
         <div>
-
-               <TitleContainer>
+            <TitleContainer>
                 <h2 className="text-primary">Not Products yet</h2>
-                
-                </TitleContainer> 
-
-
-            </div>
+            </TitleContainer> 
+        </div>
     )
 }
 

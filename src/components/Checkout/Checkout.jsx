@@ -1,16 +1,23 @@
 import { useContext, useState, useEffect } from 'react'
-import { CartContext, useCartContext } from "../../context/CartContext"
+import { useCartContext } from "../../context/CartContext"
 import { AuthContext } from '../../context/AuthContext'
-import { Link, Navigate } from "react-router-dom"
-import { writeBatch, collection, where, documentId, addDoc, updateDoc, doc, getDoc, query, getDocs } from "firebase/firestore"
+import { Link, useNavigate } from "react-router-dom"
+import { writeBatch, collection, where, documentId, addDoc,  doc, getDoc, query, getDocs } from "firebase/firestore"
 import { db } from "../../firebase/config"
 import Select from "../Select/Select"
-/* import { Formik } from 'formik'
-import * as Yup from 'yup' */
+import CartItem from "../CartItem/CartItem"
 
 
 const Checkout = () => {
-    const { cart, totalAmount, emptyCart } = useCartContext(CartContext)
+    const { cart, totalAmount, deleteProduct, emptyCart } = useCartContext()
+
+    const navigate = useNavigate()
+
+    function  eliminarCarrito(orderId) {
+        emptyCart()
+        navigate(`/order/${orderId}`)    
+    }
+
 
     const { user } = useContext(AuthContext)
 
@@ -19,6 +26,7 @@ const Checkout = () => {
     const userEmail = localStorage.getItem('email') || ''
     const userName = localStorage.getItem('nombre') || ''
     const userAddress = localStorage.getItem('address') || ''
+    
 
     const [emailUser, setEmailUser] = useState(userEmail)
 
@@ -43,9 +51,11 @@ const Checkout = () => {
     const [errorName, setNameError] = useState(false)
     const [errorAddress, setAddressError] = useState(false)
     const [errorEmail, setEmailError] = useState(false)
-
     const [noProducts, setNoProducts] = useState('')
     const [productsOut, setproductsOut] = useState([])
+
+    const [productsBuyed, setProductsBuyed] = useState([])
+
 
     const handleInputChange = (e) => {
         setValues({
@@ -53,7 +63,6 @@ const Checkout = () => {
             [e.target.name]: e.target.value
         })
     }
-
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -99,8 +108,7 @@ const Checkout = () => {
         setNameError(false) 
         localStorage.setItem('nombre', values.name)
         localStorage.setItem('address', values.address)
-
-        
+       
         const order = {
             client: values,
             items: cart,
@@ -108,28 +116,82 @@ const Checkout = () => {
             fecha: new Date()
         }
 
+        const batch = writeBatch(db)
         const ordersRef = collection(db, "orders")
+        const productsRef = collection(db, "products")
 
-        addDoc(ordersRef, order)
-            .then((doc) => {
-                setOrderId(doc.id)
-            })
-            .catch(err =>console.log(err))
+        const q = query(productsRef, where(documentId(), "in", cart.map(item => item.id)))
+
+        const products = await getDocs(q)
+
+        const outOfStock= []
         
-          
+
+        products.docs.forEach((doc) => {
+            const item = cart.find((prod) => prod.id === doc.id)
+            const stock = doc.data().stock
+
+            if (stock >= item.quantity) {
+                const newStock = stock - item.quantity
+                batch.update(doc.ref, {
+                    stock: newStock
+                })
+               
+            } else {
+                outOfStock.push(item)
+            }
+        })
+
+        if (outOfStock.length === 0) {
+            setProductsBuyed[order.items]
+
+            batch.commit()
+            
+                .then(() => {
+                    addDoc(ordersRef, order)
+                        .then((doc) => {
+                            setOrderId(doc.id)
+                            /* emptyCart() */
+                            /* setCart([]) */
+                            /* cart.forEach(  (prod) => {
+                                deleteProduct(prod.id)
+                            }) */
+                        })  
+                        .catch(err => console.log(err))
+                        .finally(() => {
+                            /* emptyCart(); */ 
+                         
+                          })                    
+                })
+              
+        } else {            
+            alert("There are items not available")
+            setNoProducts(true)
+            setproductsOut(outOfStock)
+            outOfStock.forEach((prod) => {
+                deleteProduct(prod.id)
+            })
+        }            
     }
-    console.log('-----------orderId antes de if orderId-----------')  
-    console.log(orderId)
     
-    if (orderId) {
+    if (orderId) {  
        
         return (
-            <div className="container">
-                <h2>Your Purchase was succesfully registered!</h2>
-                <hr/>
-                <p>Your Order number is: <strong>{orderId}</strong></p>
-                <Link to="/" className="btn ">Volver al inicio</Link>
+            <>        
+             <div className="container">
+                <div className="cart">
+                    <div className="cart-container" style={{padding: '50px'}}>   
+                        <h3>Your Order Nº is Completed</h3>
+
+                        <button className="btn"
+                            onClick={() => eliminarCarrito(orderId)}
+                        
+                        >See your Order</button>
+                    </div>
+                </div>
             </div>
+
+            </>
         )
     }
 
@@ -170,22 +232,33 @@ const Checkout = () => {
 
                 <button className="btn" type="submit">Submit</button>
             </form>
-            {
-                noProducts && 
-                <div>   
-                    <h3>We couldn't process the Order because some of these products are out of stock. Would you like to send us a Whatsapp so we can notify you as soon as they are available?</h3>
+            </div>
+          </div>
+          {
+            noProducts && 
+            <div className="container">
+                <div className="cart">
+                    <div className="cart-container" style={{padding: '50px'}}>   
+                        <h3>We couldn't process the Order because some of these products are out of stock. <br />
+                        Please make sure these articles are not in your Cart and try again. <br />  Would you like to send us a Whatsapp with these products, so we can notify you as soon as they are available?</h3>
+                        <div className="cart-content">
+                            <h3>Articles out of stock</h3>
+                        {
+                            productsOut.map((prod) => <CartItem key={prod} {...prod}/>)
+                        }
+                        </div>
 
+                        <Link className="btn" to="/cart">Go To Cart</Link>
+                    </div>
                 </div>
+            </div>
+                
             }
+            
 
-            </div>
-            </div>
         </div>
     )
 
 }
-
-
-
 
 export default Checkout

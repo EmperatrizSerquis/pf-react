@@ -4,7 +4,6 @@ import Fancy from "../Fancy/Fancy"
 import Button from "../Button/Button"
 
 
-
 const Contact = () => {
 
     return (

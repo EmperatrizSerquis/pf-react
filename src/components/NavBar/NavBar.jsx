@@ -43,7 +43,7 @@ function ResponsiveAppBar({ show,  handleShow }) {
     setAnchorElUser(null);
   };
 
-  const { user, logout } = useContext(AuthContext)
+  const { isAdmin, user, logout } = useContext(AuthContext)
   
 
   return (
@@ -105,7 +105,12 @@ function ResponsiveAppBar({ show,  handleShow }) {
                 <Link to={`/${page}`}>{page}</Link>
               </Button>
             ))}
+            {
+              isAdmin && <Link className="btn"  to="/admin"> Admin <br /> </Link>
+            }
+             
           </Box>
+         
           <CartWidget  show={show} handleShow={handleShow}/>
           <Box sx={{ flexGrow: 0 }}>
           

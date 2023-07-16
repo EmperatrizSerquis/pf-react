@@ -1,70 +1,39 @@
 import { useContext, useState } from 'react'
 import { AuthContext } from '../../context/AuthContext'
-import { Link } from 'react-router-dom'
+import {  Link, Navigate } from 'react-router-dom'
 
 const Admin = () => {
-    const { login, googleLogin } = useContext(AuthContext)
+    const { isAdmin, user } = useContext(AuthContext)
 
-    const [values, setValues] = useState({
-        name: '',
-        code: '',
-        description: '',
-        brand: '',
-        price: '',
-        img: '',
-        category: '',
-        stock: '',
-        power: '',
-        tone: ''
-    })
 
-    const handleInputChange = (e) => {
-        setValues({
-            ...values,
-            [e.target.name]: e.target.value
-        })
-    }
+    if (user.logged && isAdmin) {
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        login(values)
-    }
 
     return (
-        <div className='container'>
+        <div className='container' style={{fontWeight:700, color:'#9c27b0', minHeight:"300px"}}>
             <div className="b-background"> 
-            
-              
-            <div className='my-form'>
-                <h2>Login</h2>
-                <hr/>
+                <div className="promo text-center">
+                <h3> You ARE THE BEST!</h3> 
 
-                <form onSubmit={handleSubmit}>
-                    <input 
-                        value={values.email}
-                        onChange={handleInputChange}
-                        type='email' 
-                        placeholder='Email'
-                        className='form-control my-2'
-                        name='email'
-                    />
-                    <input 
-                        value={values.password}
-                        onChange={handleInputChange}
-                        type='password' 
-                        placeholder='Password'
-                        className='form-control my-2'
-                        name='password'
-                    />
-
-                    <button className='btn btn-primary' type='submit'>Submit</button>
-                    <Link to="/register">Register</Link>
-                </form>
-                <button className='btn btn-primary' onClick={googleLogin}>Register with Google</button>
+                </div>
             </div>
+            <div className="container">                
+                <div className="promo-checkout mt-20">
+                   
+                    <h3> HELLO YOU!</h3> 
+                    <h4>Admin Options</h4>
+
+                    <br />
+                    <Link to="/add" className="btn">Add Product</Link>
+
+                    
+                </div>
             </div>
         </div>
-    )
+    ) } else {
+        return <Navigate to="/"/>
+    }
+
 }
 
 export default Admin

@@ -10,8 +10,6 @@ const About = () => {
 
     const [timedPopup,setTimedPopup ] = useState(false)
 
-
-
     const openPromo = (e) => {
         console.log(e)
     }
@@ -56,10 +54,6 @@ const About = () => {
 
             <Button/>
                 
-
-            {/* <Popup trigger={timedPopup} setTrigger={setTimedPopup}>
-                <h3></h3>
-            </Popup> */}
         </div>
     )
 }

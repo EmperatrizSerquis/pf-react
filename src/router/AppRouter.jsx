@@ -15,12 +15,14 @@ import { AuthContext } from "../context/AuthContext"
 import { CartContext } from "../context/CartContext"
 import RegisterPage from "../components/Auth/RegisterPage"
 import Checkout from "../components/Checkout/Checkout"
-import Account from "../components/Account/Account"
-
+import Admin from "../components/Admin/Admin"
+import Order from "../components/Order/Order"
+import WhatsApp from "../components/WhatsApp/WhatsApp"
+import AddProduct from "../components/Admin/AddProduct"
 
 const AppRouter = () => {
-  const { user } = useContext(AuthContext)
-    const { cart } = useContext(CartContext)
+  const { user, isAdmin } = useContext(AuthContext)
+  const { cart } = useContext(CartContext)
 
     return (
         <BrowserRouter>
@@ -37,12 +39,23 @@ const AppRouter = () => {
                     <Route path="/login" element={<LoginPage />}/>
                     <Route path="/register" element={<RegisterPage />}/>
                     {cart.length > 0 && <Route path="/checkout" element={< Checkout/>} />  }
-                    {user.logged && <Route path="/account" element={< Account/>} />}
+                    {user.logged &&
+                    <> 
+                    <Route path="/order/:orderId" element={< Order/>} />
+                    </>
+                    }
+                    {isAdmin &&
+                    <> 
+                    <Route path="/admin" element={< Admin/>} />
+                    <Route path="/add" element={< AddProduct/>} />
+                    </>
+                    }
                     <Route path="*" element={<Navigate to="/"/>}/>
                   </Routes>
                 </>  
             <ServicesListContainer />
             <TestimonialsContainer />
+            <WhatsApp />
             <Footer />          
         </BrowserRouter>
     )

@@ -50,8 +50,6 @@ const LoginPage = () => {
 
             return
         }
-
-        
     }
 
     if (user.logged) {
@@ -89,12 +87,10 @@ const LoginPage = () => {
                     />
                     { error && errorMessage}
 
-                    {/* {user.logged && <p className="success">WELCOME <b> {values.name}</b>. 
+                    {user.logged && <p className="success">WELCOME <b> {values.name}</b>. 
                     </p>
-                    } */}
-                  
-                    
-                    
+                    }
+
                     <button className='btn' type='submit'>Submit</button>
                     
                 </form>

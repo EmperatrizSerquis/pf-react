@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import { AuthContext } from '../../context/AuthContext'
 import { Link, Navigate } from 'react-router-dom'
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
@@ -8,12 +8,36 @@ const RegisterPage = () => {
 
     const { register, googleLogin, user } = useContext(AuthContext)
 
+    const [errorMessage, setErrorMessage] = useState(false)
 
-    const [errorMessage, setErrorMessage] = useState(null)
+    const [errorMail, setErrorMail] = useState(false);
+    const [errorPass, setErrorPass] = useState(false);
+
+    const validateEmail = () => {
+        const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+        if (!emailRegex.test(values.email)) {
+          setErrorMail('Please enter a valid email address');         
+        } else {
+          setErrorMail(false);
+          if(values.email === '') {
+            setErrorMail('You need to enter an email');
+          }
+        }
+
+      }
+ 
+      const validatePass = () => {
+        
+        if (values.password < 6) {
+          setErrorPass('Please enter a Password with at least 6 characters');
+          
+        } else {
+          setErrorPass(false);
+        }
+      }
     
 
     const [values, setValues] = useState({
-        name: '',
         email: '',
         password: ''
     })
@@ -23,20 +47,26 @@ const RegisterPage = () => {
             ...values,
             [e.target.name]: e.target.value
         })
+
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
         setErrorMessage(false)
-        
-        try {
-           await register(values) 
-            
-        } catch (error) {
-            
-            setErrorMessage(true)
-        }  
+        validateEmail();
+        validatePass();
 
+
+        if(errorMail == false && errorPass == false) {
+            try {
+                await register(values) 
+                 
+             } catch (error) {
+                 
+                 setErrorMessage(true)
+             } 
+        }
+        
     }
 
     if (user.logged) {
@@ -60,13 +90,7 @@ const RegisterPage = () => {
                 <hr/>
 
             <form onSubmit={handleSubmit}>
-            <input 
-                    value={values.name}
-                    onChange={handleInputChange}
-                    type='text' 
-                    placeholder='Name'
-                    name='name'
-                />
+
                 <input 
                     value={values.email}
                     onChange={handleInputChange}
@@ -75,6 +99,7 @@ const RegisterPage = () => {
                     name='email'
                     required
                 />
+                {errorMail && <p style={{color: 'red'}}>{errorMail}</p>}
                 <input 
                     value={values.password}
                     onChange={handleInputChange}
@@ -83,8 +108,8 @@ const RegisterPage = () => {
                     name='password'
                     required
                 />
-
-                {/* {user.logged && <p className="success">WELCOME <b> {values.name}</b>. </p>} */}
+                {errorPass && <p style={{color: 'red'}}>{errorPass}</p>}
+                {user.logged && <p className="success">WELCOME <b> </b>. </p>}
 
                 {errorMessage && <p className="error">Something was wrong. Password must contain at least 6 characters and you should not be previousy registered</p>}
 

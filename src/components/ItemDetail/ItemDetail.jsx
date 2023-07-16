@@ -1,4 +1,4 @@
-import { useState, useContext, useMemo } from "react"
+import { useState, useContext } from "react"
 import ItemCount from "../ItemCount/ItemCount"
 import { Link, useNavigate } from "react-router-dom"
 import { CartContext } from "../../context/CartContext"
@@ -68,7 +68,7 @@ const ItemDetail = ({id, name, code, description, brand, price, img, category, s
                         isInCart(id)
                         && 
                         <div className="text-center">
-                            <p className="mb-20">This Item is already in your Cart. You have {qSave} items added now. </p> 
+                            <p className="mb-20">This Item is already in your Cart.  </p> 
                             <Link className="btn btn-center" to="/cart">Buy Now</Link>
                         </div>
                               

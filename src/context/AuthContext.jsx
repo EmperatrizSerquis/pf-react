@@ -11,18 +11,22 @@ export const AuthContextProvider = ({children}) => {
         email: null
     })
 
+    const [isAdmin, setAdmin] = useState(false)
+
+
     const login = (values) => {
         signInWithEmailAndPassword(auth, values.email, values.password)
-             
         .catch(error => {
             const errorCode = error.code 
             const errorMessage = error.message 
 
         })
+               
     }
 
 
     const register = (values) => {
+
         createUserWithEmailAndPassword(auth, values.email, values.password)
 
         .catch(error => {
@@ -33,6 +37,7 @@ export const AuthContextProvider = ({children}) => {
 
     const logout = () => {
         signOut(auth)
+
     }
 
     const googleLogin = () => {
@@ -50,6 +55,11 @@ export const AuthContextProvider = ({children}) => {
                     email: user.email
                 })   
                 localStorage.setItem('email', user.email)
+                if(user.email === 'admin@admin.com') {
+                    setAdmin(true)
+                    localStorage.setItem('isAdmin', true)
+                }
+                
 
             } else {
                
@@ -57,14 +67,17 @@ export const AuthContextProvider = ({children}) => {
                     logged: false,
                     email: null
                 })
+                setAdmin(false)
                 localStorage.setItem('email', '')
+                localStorage.setItem('isAdmin', false)
+
             }
 
         })
     }, [])
 
     return (
-        <AuthContext.Provider value={{googleLogin, user, login, register, logout}}>
+        <AuthContext.Provider value={{googleLogin, user, isAdmin, login, register, logout}}>
             {children}
         </AuthContext.Provider>
     )

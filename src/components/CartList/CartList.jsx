@@ -13,8 +13,7 @@ const CartList = () => {
     return (
         <div>
             <TitleContainer>
-                <h2 className="text-primary">Cart Detail</h2>
-                
+                <h2 className="text-primary">Cart Detail</h2>                
             </TitleContainer> 
             <div className="cart-container">
                 <div className="cart">
@@ -25,9 +24,7 @@ const CartList = () => {
                 <div className="cart-content">
                     {
                         cart.map((prod) => <CartItem key={prod.id} {...prod}/>)
-                    }
-
-                    
+                    }                    
                     <hr />
                     <div className="checkout">
                         <div className="total">
@@ -40,13 +37,13 @@ const CartList = () => {
                     </div>                  
                 </div>
                 {
-                        user.logged ?
+                    user.logged ?
 
-                        <button className='button-cart'><Link  to={"/checkout"}>Checkout</Link></button>                       
-                       :
-                       <button className='button-cart'><Link  to={"/login"}>Login & Checkout</Link></button>
-                       
-                      } 
+                    <button className='button-cart'><Link  to={"/checkout"}>Checkout</Link></button>                       
+                    :
+                    <button className='button-cart'><Link  to={"/login"}>Login & Checkout</Link></button>
+                    
+                } 
                 
             </div>
 
